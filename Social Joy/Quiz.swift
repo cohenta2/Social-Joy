@@ -8,9 +8,20 @@
 
 import Foundation
 
+struct Question {
+    let number: Int
+    let questionSentence: String
+    let options: [Character:String]
+    let correctOption: Character
+    
+    
+}
+
 class Quiz {
     
-    var questions = [Question]()
+    
+    
+//    var questions = [Question]()
     init () {
         self.getJson()
     }
@@ -25,8 +36,8 @@ class Quiz {
                 print("inside get JSON")
                 print(result)
                 do {
-                    let json =  try JSONSerialization.jsonObject(with: result, options: .allowFragments)
                     
+                    let json =  try JSONSerialization.jsonObject(with: result, options: .allowFragments)
                     if let dictionary = json as? [String:Any] {
                         self.buildQuestions(dictionary: dictionary)
                     }
@@ -41,9 +52,9 @@ class Quiz {
     }
     
     func buildQuestions(dictionary: [String:Any]) {
-//        for ques in dictionary {
-//            if let correctAns = ques["correctOption"] == Character
-//            let number = ques["number"]
+//        for question in dictionary {
+//
+//            question['number']
 //        }
     }
 }
