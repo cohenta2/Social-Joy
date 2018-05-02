@@ -44,7 +44,8 @@
                                 <rect key="frame" x="149" y="367" width="76" height="30"/>
                                 <state key="normal" title="Start Quiz"/>
                                 <connections>
-                                    <segue destination="0Kx-zV-8G9" kind="show" id="WqY-wh-DOY"/>
+                                    <action selector="startQuiz:" destination="XbU-Cp-nlN" eventType="touchUpInside" id="kUM-OP-RNg"/>
+                                    <segue destination="0Kx-zV-8G9" kind="show" identifier="toTheGame" id="WqY-wh-DOY"/>
                                 </connections>
                             </button>
                         </subviews>
