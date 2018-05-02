@@ -13,15 +13,13 @@ struct Question {
     let questionSentence: String
     let options: [Character:String]
     let correctOption: Character
-    
-    
 }
 
 class Quiz {
     
-    
-    
-//    var questions = [Question]()
+    var numOfQuestions: Int!
+    var questions = [Question]()
+    var topic: String!
     init () {
         self.getJson()
     }
@@ -36,10 +34,16 @@ class Quiz {
                 print("inside get JSON")
                 print(result)
                 do {
+                    let json = try JSONSerialization.jsonObject(with: result, options: .allowFragments)
                     
-                    let json =  try JSONSerialization.jsonObject(with: result, options: .allowFragments)
                     if let dictionary = json as? [String:Any] {
-                        self.buildQuestions(dictionary: dictionary)
+                        self.numOfQuestions = dictionary["numberOfQuestions"] as! Int
+                        self.topic = dictionary["topic"] as! String
+                        
+                        let questions = dictionary["questions"] as! [Any]
+                        for question in questions {
+                            
+                        }
                     }
                 }
                 catch {
