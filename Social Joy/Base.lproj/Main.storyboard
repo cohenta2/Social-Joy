@@ -115,24 +115,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85727007772020725" green="0.85727007772020725" blue="0.85727007772020725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Choice A"/>
+                                <connections>
+                                    <action selector="choiceASelect:" destination="0Kx-zV-8G9" eventType="touchUpInside" id="XgH-Jc-KFN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puw-bF-aqA">
                                 <rect key="frame" x="75" y="483" width="104" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85727007769999997" green="0.85727007769999997" blue="0.85727007769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Choice C"/>
+                                <connections>
+                                    <action selector="choiceCSelect:" destination="0Kx-zV-8G9" eventType="touchUpInside" id="vhq-D0-ane"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaX-N8-7oI">
                                 <rect key="frame" x="195" y="483" width="104" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85727007769999997" green="0.85727007769999997" blue="0.85727007769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Choice D"/>
+                                <connections>
+                                    <action selector="choiceDSelect:" destination="0Kx-zV-8G9" eventType="touchUpInside" id="arH-wT-pv5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcn-rg-gpA">
                                 <rect key="frame" x="195" y="401" width="104" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.85727007769999997" green="0.85727007769999997" blue="0.85727007769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Choice B"/>
+                                <connections>
+                                    <action selector="choiceBSelect:" destination="0Kx-zV-8G9" eventType="touchUpInside" id="ytc-bB-wNd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0m-yl-TCk">
                                 <rect key="frame" x="157" y="569" width="87" height="28"/>
