@@ -37,6 +37,8 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
         session.delegate = self
         browser.delegate = self
         
+        thePlayers.append(Player(peerID: self.peerID, playerNumber: "1"))
+        
         //Set up single player & mmultiplayer games
         //self.singlePlayerGame = SinglePlayerGame(currentPlayer: Player(peerID: self.peerID))
         
@@ -123,14 +125,10 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
         switch state {
         case MCSessionState.connected:
             print("Connected: \(peerID.displayName)")
-            let playerID = peerID
+            //let playerID = peerID
             //thePlayers.append(playerID)
             
-            if thePlayers.count == 0
-            {
-                thePlayers.append(Player(peerID: peerID, playerNumber: "1"))
-            }
-            else if thePlayers.count == 1
+             if thePlayers.count == 1
             {
                 thePlayers.append(Player(peerID: peerID, playerNumber: "2"))
             }
