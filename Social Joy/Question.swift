@@ -8,31 +8,17 @@
 
 import Foundation
 
-class Question {
-    var ques: String
-    var answer: Int
-    var options: [Character:String]
-    
-    init(ques: String, answer: Int, options: [Character:String]) {
-        self.ques = ques
-        self.answer = answer
-        self.options = options
-    }
-    
-    func getQuestion() -> String {
-        return self.ques
-    }
-    
-    func getAnswer() -> Int {
-        return self.answer
-    }
-    
-    func getOptions() -> [Character:String] {
-        return self.options
-    }
-    
-    func getOption(key: Character) -> String {
-        return self.options[key]!
-    }
-    
-}
+//struct Question: Decodable {
+//    let ques: String
+//    let number: Int
+//    let options: [Character:String]
+//    let correctOption: Character
+//
+//    enum CodingKeys : String, CodingKey {
+//        case question
+//        case number
+//        case options
+//        case correctOption
+//    }
+//}
+
