@@ -11,7 +11,8 @@ import MultipeerConnectivity
 
 //Could add multiplayer class but for now...
 
-var thePlayers = [MCPeerID]()
+//var thePlayers = [MCPeerID]()
+var thePlayers = [Player]()
 
 
 class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,MCSessionDelegate {
@@ -112,7 +113,6 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         
       
-        
     }
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
@@ -123,7 +123,24 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
         case MCSessionState.connected:
             print("Connected: \(peerID.displayName)")
             let playerID = peerID
-            thePlayers.append(playerID)
+            //thePlayers.append(playerID)
+            
+            if thePlayers.count == 0
+            {
+                thePlayers.append(Player(peerID: peerID, playerNumber: "1"))
+            }
+            else if thePlayers.count == 1
+            {
+                thePlayers.append(Player(peerID: peerID, playerNumber: "2"))
+            }
+            else if thePlayers.count == 2
+            {
+                thePlayers.append(Player(peerID: peerID, playerNumber: "3"))
+            }
+            else if thePlayers.count == 3
+            {
+                thePlayers.append(Player(peerID: peerID, playerNumber:"4"))
+            }
             
             
         case MCSessionState.connecting:
