@@ -142,19 +142,24 @@ class quizScreenController: UIViewController {
         
         peerID = MCPeerID(displayName: UIDevice.current.name)
         
+  
+        //The currentPlayer is the peerID that is equal to an object in thePlayers
+        //Throwing SIGBAT error because if theres only 2 players, there no thePlayers object data at 2 or 3 (3 or 4 players)
+        //Could fix by
+        
         if peerID == thePlayers[0].peerID
         {
             currentPlayer = thePlayers[0]
         }
-        else if peerID == thePlayers[1].peerID
+        else if thePlayers.count >= 1 && peerID == thePlayers[1].peerID
         {
             currentPlayer = thePlayers[1]
         }
-        else if peerID == thePlayers[2].peerID
+        else if thePlayers.count >= 2 && peerID == thePlayers[2].peerID
         {
             currentPlayer = thePlayers[2]
         }
-        else if peerID == thePlayers[3].peerID
+        else if thePlayers.count >= 3 && peerID == thePlayers[3].peerID
         {
             currentPlayer = thePlayers[3]
         }
