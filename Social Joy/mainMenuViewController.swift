@@ -9,6 +9,10 @@
 import UIKit
 import MultipeerConnectivity
 
+//Could add multiplayer class but for now...
+
+var thePlayers = [MCPeerID]()
+
 
 class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,MCSessionDelegate {
 
@@ -31,6 +35,9 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
         assistant.start()
         session.delegate = self
         browser.delegate = self
+        
+        //Set up single player & mmultiplayer games
+        //self.singlePlayerGame = SinglePlayerGame(currentPlayer: Player(peerID: self.peerID))
         
     }
     
@@ -59,10 +66,37 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
     }
     
     
+    @IBAction func startQuiz(_ sender: Any) {
+        
+        //If it's single player we can just start game but if its multiplayer...
+        
+        //Send peer daata & preform segue
+        do {
+        let peerData = NSKeyedArchiver.archivedData(withRootObject: "StartingTheGame")
+        try session.send(peerData, toPeers: session.connectedPeers, with: .unreliable)
+        }
+        catch let err {
+            print("Data could not be sent :(")
+        }
+        
+        performSegue(withIdentifier: "toTheGame", sender: self)
+        
+        //let data = NSKeyedArchiver.archivedDat(withRootObject: "START")
+        // session.send(data, toPeers: session.connectedPeers, with: .unreliable)
+    }
+    
+    
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         
-        print("inside didReceiveData")
-        
+        DispatchQueue.main.async(execute: {
+            
+            if let recievedString = NSKeyedUnarchiver.unarchiveObject(with: data) as? String{
+                if recievedString == "StartingTheGame"
+                {
+                    self.performSegue(withIdentifier: "toTheGame", sender: self)
+                }
+            }
+        })
     }
     
     
@@ -78,6 +112,8 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         
+      
+        
     }
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
@@ -87,6 +123,9 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
         switch state {
         case MCSessionState.connected:
             print("Connected: \(peerID.displayName)")
+            let playerID = peerID
+            thePlayers.append(playerID)
+            
             
         case MCSessionState.connecting:
             print("Connecting: \(peerID.displayName)")
