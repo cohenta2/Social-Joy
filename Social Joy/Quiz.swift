@@ -8,13 +8,11 @@
 
 import Foundation
 
-struct Question {
+struct Question : Codable{
     let number: Int
     let questionSentence: String
     let options: [Character:String]
     let correctOption: Character
-    
-    
 }
 
 class Quiz {
