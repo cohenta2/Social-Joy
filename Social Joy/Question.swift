@@ -13,6 +13,13 @@ class Question {
     var answer: Int
     var options: [Character:String]
     
+    enum CodingKeys : String, CodingKey {
+        case number
+        case questionSentence
+        case options
+        case correctOption
+    }
+    
     init(ques: String, answer: Int, options: [Character:String]) {
         self.ques = ques
         self.answer = answer

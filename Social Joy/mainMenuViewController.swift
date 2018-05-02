@@ -26,6 +26,7 @@ class mainMenuViewController: UIViewController, MCBrowserViewControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var aQuiz = Quiz()
         
         self.peerID = MCPeerID(displayName: UIDevice.current.name)
         self.session = MCSession(peer: peerID)
