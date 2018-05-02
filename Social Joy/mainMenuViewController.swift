@@ -14,7 +14,8 @@ class mainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var aQuiz = Quiz()
+        aQuiz.buildQuestions()
     }
 
     override func didReceiveMemoryWarning() {
