@@ -11,9 +11,32 @@ import Foundation
 class Quiz {
 
     init () {
-        let urlString = "www.people.vcu.edu/~ebulut/jsonFiles/quiz1.json"
+        getJson()
+    }
+    
+    func getJson() {
+        let urlString = "https://www.people.vcu.edu/~ebulut/jsonFiles/quiz1.json"
         let url = URL(string: urlString)
         let session = URLSession.shared
-        let task = session.dataTask(with: url!, completionHandler: { (data, response, error) in })
+        let task = session.dataTask(with: url!, completionHandler: { (data, response, error) in
+            
+            if let result = data {
+                print("inside get JSON")
+                print(result)
+                do {
+                    let json =  try JSONSerialization.jsonObject(with: result, options: .allowFragments)
+                    
+                    if let dictionary = json as? [String:Any]{
+                        print(dictionary)
+                    }
+                }
+                catch {
+                    print("Error")
+                }
+                
+            }
+            
+        })
+        task.resume()
     }
 }
